@@ -1,0 +1,56 @@
+Customer Shopping Behaviour Analysis
+=======================================
+
+Project Overview
+----------------
+This project analyzes customer shopping behaviour using transactional Data
+from 3,900 purchases across various product categories. The goal is to uncover insights into spending
+patterns, customer segments, product preferences, and subscription behaviour to guide strategic bussiness decisions. 
+
+Dataset Summary
+----------------
+    - Rows: 3,900
+    - Columns: 18
+    - Key Features:
+        - Customer demographics(age, gender, location, subsription_status)
+        - Purchase details(item_purcahsed, category, purchase_amount, season, size, color)
+        - Shopping behaviours(discount_applied, promo_code_used, previous_purchases, frequency_of_purchases, review_rating, shipping_type)
+    - Missing Data: 37 values in Review Rating Column
+
+Exploratory Data Analysis
+--------------------------
+    1. Data preparation and cleaning: 
+        * Data Loading: imported dataset using pandas
+        * Initial Exploration: used df.info() to check structure and .describe() to summary statistics
+        * Handling Missing Data: checked for nulls and imputed missing values in the review_rating column using the median ration of each product category
+        * Column Standardization: Renamed columns to snake case for beter readability and documentation
+        *Feature Engeneering: 
+            * Created age_group column by binning customer ages
+            * created purchase_frequency_days column from purchase data
+        * Data Consistency Check:Verified if discount_applied and promo_code_used were redundant, and dropped promo_code_used 
+        * Database Integration: Connected Python script to PostgreSQL and loaded the cleaned DataFrame into the database for SQL analysis
+
+Data Analysis using SQL
+-----------------------
+    * Revenues by gender
+    * High-spending discount users
+    * Top 5 products by ratings
+    * Average puchase amount by standard vs. express shipping
+    * Subscribers vs. non-subscribers
+    * Top 5 purchased products with discount discount_applied
+    * Segments of customers
+    * Top 3 purchased products in each category
+    * Repeat buyers & subscription
+    * Revenue by Age Group
+
+Dashboard in Power BI
+---------------------
+Interactive dashboard was developed in Power BI to present insights visually
+
+Business Recommendations
+-----------------------
+    * Boost subscriptions:promote exclusive benefits to subscribers
+    * Customer loyalty programs: reward repeat buyers to move them into 'loyal' segment
+    * Review discount policy: balance sales boosts with margin control
+    * Product positioning: highlight top-rated and best-selling products in campaigns
+    * Target Marketing: focus on high-revenue age groups and express-shipping users
